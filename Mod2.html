@@ -374,7 +374,7 @@ $(document).ready(function () {
 <!-- see http://rmarkdown.rstudio.com/ for details in formatting -->
 <hr />
 <blockquote>
-<p><strong><em>Help operator</em></strong>: R provee el operador <code>?</code> para conocer las opciones y parámetros de las instrucciones. Ej: <code>help(&quot;paste&quot;)</code> o <code>?paste</code>.</p>
+<p><strong><em>Help operator</em></strong>: R provee el operador <code>?</code> para conocer las opciones y parámetros de las instrucciones. Ej: <code>help("paste")</code> o <code>?paste</code>.</p>
 </blockquote>
 <hr />
 <div id="objetos" class="section level1">
@@ -462,7 +462,7 @@ c &lt;- as.integer(a) # para transformar un variable float en entera. </code></p
 <pre class="r"><code>sexo &lt;- c(&quot;M&quot;, &quot;H&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;H&quot;, &quot;M&quot;, &quot;M&quot;, &quot;H&quot;, &quot;H&quot;)
 sexo</code></pre>
 <pre><code>##  [1] &quot;M&quot; &quot;H&quot; &quot;M&quot; &quot;M&quot; &quot;M&quot; &quot;H&quot; &quot;M&quot; &quot;M&quot; &quot;H&quot; &quot;H&quot;</code></pre>
-<p>puede ser considerada un factor, ya que establece para cada sujeto su pertenencia a una de las dos categorías “Hombre”&quot; o “Mujer”. Para que R reconozca al sexo como factor, una vez introducidos los datos utilizamos la función:</p>
+<p>puede ser considerada un factor, ya que establece para cada sujeto su pertenencia a una de las dos categorías “Hombre”" o “Mujer”. Para que R reconozca al sexo como factor, una vez introducidos los datos utilizamos la función:</p>
 <pre class="r"><code>sexo &lt;- factor(sexo)
 sexo</code></pre>
 <pre><code>##  [1] M H M M M H M M H H
@@ -472,7 +472,7 @@ sexo</code></pre>
 sexo</code></pre>
 <pre><code>##  [1] Mujer  Hombre Mujer  Mujer  Mujer  Hombre Mujer  Mujer  Hombre Hombre
 ## Levels: Hombre Mujer</code></pre>
-<p>Estas etiquetas aparecerán en los resultados de los procedimientos estadísticos donde apareza el factor, aclarando su significado. Por ejemplo, si pedimos a R que nos construya la tabla de frecuencias de sexos, en lugar de H o M nos mostrará los términos “Hombre”&quot; o “Mujer”:</p>
+<p>Estas etiquetas aparecerán en los resultados de los procedimientos estadísticos donde apareza el factor, aclarando su significado. Por ejemplo, si pedimos a R que nos construya la tabla de frecuencias de sexos, en lugar de H o M nos mostrará los términos “Hombre”" o “Mujer”:</p>
 <pre class="r"><code>table(sexo)</code></pre>
 <pre><code>## sexo
 ## Hombre  Mujer 
@@ -661,7 +661,7 @@ y</code></pre>
 class(letras)</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <ul>
-<li><code>paste()</code>: esta función “pega” (o concatena) variables de clase <code>character</code>; la opción <code>sep</code> indica el símbolo que separa los valores que se han pegado; en caso de que no se quiera dejar ningún símbolo de separación, debe usarse <code>sep=&quot;&quot;</code>:</li>
+<li><code>paste()</code>: esta función “pega” (o concatena) variables de clase <code>character</code>; la opción <code>sep</code> indica el símbolo que separa los valores que se han pegado; en caso de que no se quiera dejar ningún símbolo de separación, debe usarse <code>sep=""</code>:</li>
 </ul>
 <pre class="r"><code>paste(&quot;A&quot;,&quot;B&quot;,sep=&quot;-&quot;)</code></pre>
 <pre><code>## [1] &quot;A-B&quot;</code></pre>
@@ -1032,7 +1032,7 @@ MiLista &lt;- list(misDatos,A,M=M,x=c(1,2,3,4),e=exp(1))</code></pre>
 <p>Si guardamos el resultado de este contraste en el objeto contraste, podemos observar que tiene estructura de lista:</p>
 <pre class="r"><code>contraste &lt;- t.test(tiempo~sexo, data=misDatos)
 str(contraste)</code></pre>
-<pre><code>## List of 9
+<pre><code>## List of 10
 ##  $ statistic  : Named num -3.13
 ##   ..- attr(*, &quot;names&quot;)= chr &quot;t&quot;
 ##  $ parameter  : Named num 7.85
@@ -1044,6 +1044,7 @@ str(contraste)</code></pre>
 ##   ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;mean in group H&quot; &quot;mean in group M&quot;
 ##  $ null.value : Named num 0
 ##   ..- attr(*, &quot;names&quot;)= chr &quot;difference in means&quot;
+##  $ stderr     : num 0.539
 ##  $ alternative: chr &quot;two.sided&quot;
 ##  $ method     : chr &quot;Welch Two Sample t-test&quot;
 ##  $ data.name  : chr &quot;tiempo by sexo&quot;
@@ -1193,24 +1194,24 @@ while(x &lt; 4)
 <pre class="r"><code>A = matrix(runif(50),nrow=10) # Matriz de dimensión 10x10 cuyos elementos son valores
                                # aleatorios con distribución uniforme en (0,1)
 A</code></pre>
-<pre><code>##             [,1]      [,2]      [,3]       [,4]       [,5]
-##  [1,] 0.37009305 0.6304611 0.2067528 0.02738504 0.10359628
-##  [2,] 0.63890113 0.4604373 0.1715108 0.47260571 0.96439787
-##  [3,] 0.97304984 0.4110631 0.1418955 0.61152365 0.02616857
-##  [4,] 0.26758552 0.4240601 0.8816764 0.39292508 0.17334071
-##  [5,] 0.87220496 0.6430333 0.4379957 0.69572998 0.02015922
-##  [6,] 0.47193594 0.9295464 0.3257880 0.38998020 0.39401418
-##  [7,] 0.21616599 0.4930604 0.3005786 0.55037475 0.07213489
-##  [8,] 0.78104775 0.5259341 0.1491242 0.98659440 0.37070616
-##  [9,] 0.19746620 0.3826889 0.9648480 0.34886913 0.03128030
-## [10,] 0.09647797 0.8083014 0.7245388 0.73217984 0.21358924</code></pre>
+<pre><code>##            [,1]       [,2]       [,3]      [,4]       [,5]
+##  [1,] 0.6314554 0.84184898 0.58717502 0.5312335 0.12999666
+##  [2,] 0.5484789 0.20085922 0.06554924 0.5799564 0.97511303
+##  [3,] 0.1501349 0.83303517 0.08618961 0.7627972 0.57063532
+##  [4,] 0.6667887 0.56462856 0.19562661 0.3923275 0.80713673
+##  [5,] 0.7844687 0.06736126 0.29073534 0.9668690 0.17266904
+##  [6,] 0.2623161 0.42500383 0.36024395 0.3836616 0.53299174
+##  [7,] 0.1330328 0.43567323 0.13034732 0.4646785 0.53587530
+##  [8,] 0.4017300 0.90835242 0.17820772 0.8366851 0.74248967
+##  [9,] 0.7000846 0.35724332 0.82733596 0.9041278 0.66771695
+## [10,] 0.1296504 0.46046337 0.32707046 0.8484658 0.07107681</code></pre>
 <pre class="r"><code>sumCuadrados=function(x){sum(x^2)}  # Función que calcula la suma de cuadrados de 
                                     # los términos de un vector x
 apply(A,1,sumCuadrados)  # Devuelve la suma de cuadrados de cada fila de A</code></pre>
-<pre><code>##  [1] 0.5886789 1.8030325 1.5105792 1.2132194 1.8505201 1.5002496 0.6882996 2.0196719 1.2390635
-## [10] 1.7693232</code></pre>
+<pre><code>##  [1] 1.7513283 1.6326650 1.6314010 1.6070729 1.6691060 0.8104901 0.7275877 2.2695820 2.5655190
+## [10] 1.0607570</code></pre>
 <pre class="r"><code>apply(A,2,sumCuadrados)  # Devuelve la suma de cuadrados de cada columna de A</code></pre>
-<pre><code>## [1] 3.252121 3.555349 2.736102 3.322660 1.316406</code></pre>
+<pre><code>## [1] 2.536926 3.301538 1.449281 4.889680 3.548085</code></pre>
 <ul>
 <li><p><code>lapply(L,fun)</code>: aplica la función <code>fun</code> a todos los elementos de la lista <code>L</code>. El resultado se devuelve también en una lista.</p></li>
 <li><p><code>sapply(L,fun)</code>: al igual que <code>lapply()</code>, aplica la función <code>fun</code> a todos los elementos de la lista <code>L</code>, pero devuelve el resultado en forma de vector o matriz</p></li>

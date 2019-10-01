@@ -142,23 +142,23 @@ Con esta instrucción estamos creando una variable llamada "a", y le estamos car
 
 En la consola también puedes escribir, por ejemplo: 
 
-![](http://www.dma.ulpgc.es/profesores/personal/stat/cursoR4ULPGC/imagenes/ejemplo2+2.png)
+![](resources/ejemplo2+2.png)
 
 Puedes probar con múltiples funciones: raiz cuadrada (sqrt), cuadrado ( ^ 2), logaritmo, etc:
 
-![](http://www.dma.ulpgc.es/profesores/personal/stat/cursoR4ULPGC/imagenes/variasOperaciones.png)
+![](resources/variasOperaciones.png)
 
 Puedes asignar valores a variables:
 
-![](http://www.dma.ulpgc.es/profesores/personal/stat/cursoR4ULPGC/imagenes/valVari.png)
+![](resources/valVari.png)
 
 Una variable puede contener muchos valores; en tal caso la variable puede expresarse como un vector de dimensión n, que se construye mediante la función de concatenación, ´c()´:
 
-![](http://www.dma.ulpgc.es/profesores/personal/stat/cursoR4ULPGC/imagenes/vectores.png)
+![](resources/vectores.png)
 
 Las operaciones con variables n-dimensionales se realizan término a término:
 
-![](http://www.dma.ulpgc.es/profesores/personal/stat/cursoR4ULPGC/imagenes/operaVectores.png)
+![](resources/operaVectores.png)
 
 Hasta ahora hemos ejecutados instrucciones en R en la consola. Ahora bien, cuando cerremos Rstudio,no quedará rastro de lo que hemos estado haciendo. Para eso es que debemos trabajar con ***scripts***. 
 
@@ -211,7 +211,7 @@ En la actualidad, numerosas plataformas de enseñanza online ofrecen cursos de R
 
 [Leyendo libros y documentación en internet](https://www.r-project.org/doc/bib/R-books.html)
 
-[Curso de introducción a R](http://www.dma.ulpgc.es/profesores/personal/stat/cursoR4ULPGC/index.html). Recomendado. Varias clases y ejemplos de este curso, se tomaron de este sitio. 
+[Curso de introducción a R](http://www.estadistica-dma.ulpgc.es/cursoR4ULPGC/index.html). Recomendado. Varias clases y ejemplos de este curso, se tomaron de este sitio. 
 
 [Programming in R](http://manuals.bioinformatics.ucr.edu/home/programming-in-r#TOC-Introduction)
 

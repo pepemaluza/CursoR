@@ -815,7 +815,7 @@ model_gbm<-train(trainSet[,predictors],trainSet[,outcomeName],method='gbm')
 
 Como hemos comentado, Caret contiene más de 200 modelos. Cada uno de ellos contiene sus propio set de parámetros y, por tanto, es necesario setearlos correctamente. A continuación incluimos el tradicional pseudo-código que se utiliza en Caret para el seteo de parámetros: 
 
-![](https://www.analyticsvidhya.com/wp-content/uploads/2016/12/caret-6.png)
+![](resources/caret-6.png)
 
 > **Resampling**: método estadístico que se utiliza para medir la performance del modelo seleccionado. Existen varios métodos de resampling. Caret utiliza [`bootstrap`](https://es.wikipedia.org/wiki/Bootstrapping_(estadística)) por default.  
 

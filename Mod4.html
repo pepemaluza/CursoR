@@ -649,9 +649,13 @@ df &lt;- data.frame(
 <ol style="list-style-type: decimal">
 <li>Vamos a graficar la función de densidad de toda la muestra:</li>
 </ol>
-<pre class="r"><code>library(ggplot2)
-
-p &lt;- ggplot(df, aes(x=weight)) + 
+<pre class="r"><code>library(ggplot2)</code></pre>
+<pre><code>## Registered S3 methods overwritten by &#39;ggplot2&#39;:
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang</code></pre>
+<pre class="r"><code>p &lt;- ggplot(df, aes(x=weight)) + 
   geom_density()
 p</code></pre>
 <p><img src="Mod4_files/figure-html/unnamed-chunk-33-1.png" width="432" /></p>
@@ -743,9 +747,16 @@ boxplot(Happiness~Region,col=&quot;gold&quot;,xlab=&quot;Region&quot;,ylab=&quot
 <div id="mapas-de-calor" class="section level1">
 <h1><span class="header-section-number">4</span> Mapas de calor</h1>
 <pre class="r"><code>library(lattice)
-library(gplots)
-
-# generamos 4 matrices de 5x10, cada una: 
+library(gplots)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;gplots&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:plotrix&#39;:
+## 
+##     plotCI</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     lowess</code></pre>
+<pre class="r"><code># generamos 4 matrices de 5x10, cada una: 
 y &lt;- lapply(1:4, function(x) matrix(rnorm(50), 10, 5))
 
 ## Generaremos 4 variantes de mapas de calor:  
@@ -791,8 +802,9 @@ print(x4, split=c(2,2,2,2), newpage=FALSE) </code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Ver el dendograma como árbol filogenético</li>
 </ol>
-<pre class="r"><code>library(&quot;ape&quot;)
-plot(as.phylo(hc), type = &quot;unrooted&quot;, cex = 0.6,
+<pre class="r"><code>library(&quot;ape&quot;)</code></pre>
+<pre><code>## Warning: package &#39;ape&#39; was built under R version 3.6.1</code></pre>
+<pre class="r"><code>plot(as.phylo(hc), type = &quot;unrooted&quot;, cex = 0.6,
      no.margin = TRUE)</code></pre>
 <p><img src="Mod4_files/figure-html/unnamed-chunk-47-1.png" width="432" /></p>
 <ol start="6" style="list-style-type: decimal">
@@ -821,29 +833,20 @@ abline(h = 4, lty = 2) # dibujar la línea en la altura 4. </code></pre>
 <div id="un-poco-de-teoria" class="section level2">
 <h2><span class="header-section-number">6.1</span> Un poco de teoría</h2>
 <p>La armonía entre colores está representada en la siguiente rueda de colores:</p>
-<div class="figure">
-<img src="http://www.sthda.com/sthda/RDoc/images/color-wheel.png" />
-
-</div>
+<p><img src="http://www.sthda.com/sthda/RDoc/images/color-wheel.png" /></p>
 <p>Definiciones básicas:</p>
 <ol style="list-style-type: decimal">
 <li><p><strong><em>Monocromático</em></strong>: variaciones del mismo color.</p></li>
 <li><p><strong><em>Análogo</em></strong>: los colores que se tocan en la rueda crean una combinación de colores armoniosa.</p></li>
 <li><p><strong><em>Complementario</em></strong>: los colores de los extremos opuestos de la rueda proporcionan el mayor contraste.</p></li>
 </ol>
-<div class="figure">
-<img src="http://www.sthda.com/sthda/RDoc/images/color-wheel-basics.png" />
-
-</div>
+<p><img src="http://www.sthda.com/sthda/RDoc/images/color-wheel-basics.png" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li><p><strong><em>División complementaria</em></strong>: una variación del esquema complementario que usa dos colores en cada lado de un color directamente complementario. Estos colores tienen un alto contraste visual pero con menos tensión visual que los colores puramente complementarios.</p></li>
 <li><p><strong><em>Triádico</em></strong>: tres colores igualmente espaciados alrededor de la rueda de colores crean un interés visual intenso.</p></li>
 <li><p><strong><em>Tetrádico</em></strong>: Dos pares de colores complementarios. Este esquema es popular porque ofrece un fuerte contraste visual al tiempo que conserva la armonía.</p></li>
 </ol>
-<div class="figure">
-<img src="http://www.sthda.com/sthda/RDoc/images/color-wheel-basics-2.png" />
-
-</div>
+<p><img src="http://www.sthda.com/sthda/RDoc/images/color-wheel-basics-2.png" /></p>
 </div>
 <div id="el-paquete-colortools" class="section level2">
 <h2><span class="header-section-number">6.2</span> El paquete <code>colortools</code></h2>

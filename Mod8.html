@@ -484,14 +484,17 @@ head(df, n = 3)</code></pre>
   install.packages(&quot;cluster&quot;)
 
 if (!&quot;factoextra&quot; %in% rownames(installed.packages()))
-  install.packages(&quot;factoextra&quot;)</code></pre>
-<pre><code>## also installing the dependencies &#39;ellipsis&#39;, &#39;forcats&#39;, &#39;zip&#39;, &#39;SparseM&#39;, &#39;MatrixModels&#39;, &#39;sp&#39;, &#39;haven&#39;, &#39;openxlsx&#39;, &#39;minqa&#39;, &#39;nloptr&#39;, &#39;RcppEigen&#39;, &#39;carData&#39;, &#39;pbkrtest&#39;, &#39;quantreg&#39;, &#39;maptools&#39;, &#39;rio&#39;, &#39;lme4&#39;, &#39;car&#39;, &#39;ellipse&#39;, &#39;flashClust&#39;, &#39;leaps&#39;, &#39;scatterplot3d&#39;, &#39;ggsci&#39;, &#39;cowplot&#39;, &#39;ggsignif&#39;, &#39;polynom&#39;, &#39;abind&#39;, &#39;FactoMineR&#39;, &#39;ggpubr&#39;, &#39;ggrepel&#39;</code></pre>
-<pre><code>## 
-## The downloaded binary packages are in
-##  /var/folders/2m/mp3kdlpx29q25xhnfjxcgtv00000gn/T//RtmpwiPWcF/downloaded_packages</code></pre>
-<pre class="r"><code>library(ggplot2)
-library(cluster)
+  install.packages(&quot;factoextra&quot;)
+
+library(ggplot2)</code></pre>
+<pre><code>## Registered S3 methods overwritten by &#39;ggplot2&#39;:
+##   method         from 
+##   [.quosures     rlang
+##   c.quosures     rlang
+##   print.quosures rlang</code></pre>
+<pre class="r"><code>library(cluster)
 library(factoextra)</code></pre>
+<pre><code>## Warning: package &#39;factoextra&#39; was built under R version 3.6.1</code></pre>
 <pre><code>## Welcome! Related Books: `Practical Guide To Cluster Analysis in R` at https://goo.gl/13EFCZ</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Cálculo de distancia</li>
@@ -569,10 +572,6 @@ total within-cluster=\sum_{k=1}^{k}W(C_k)=\sum_{k=1}^{k}\sum_{x_i \in C_k}^{} (x
 library(factoextra)
 # recordemos que df_standardized es el dataset estandarizado
 factoextra::fviz_nbclust(df_standardized, kmeans, method = &quot;gap_stat&quot;)</code></pre>
-<pre><code>## Clustering k = 1,2,..., K.max (= 10): .. done
-## Bootstrapping, b = 1,2,..., B (= 100)  [one &quot;.&quot; per sample]:
-## .................................................. 50 
-## .................................................. 100</code></pre>
 <p><img src="Mod8_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>El número óptimo de grupo que sugiere <code>fviz_nbclust()</code> es 3. Es decir, K=3.</p>
 <ol start="2" style="list-style-type: decimal">
@@ -592,36 +591,36 @@ fviz_cluster(km.res, data = df_standardized, palette = &quot;jco&quot;,
 <li>Veamos la información de <code>km.res</code>:</li>
 </ol>
 <pre class="r"><code>print(km.res)</code></pre>
-<pre><code>## K-means clustering with 3 clusters of sizes 13, 17, 20
+<pre><code>## K-means clustering with 3 clusters of sizes 20, 13, 17
 ## 
 ## Cluster means:
 ##       Murder    Assault   UrbanPop       Rape
-## 1 -0.9615407 -1.1066010 -0.9301069 -0.9667633
-## 2 -0.4469795 -0.3465138  0.4788049 -0.2571398
-## 3  1.0049340  1.0138274  0.1975853  0.8469650
+## 1  1.0049340  1.0138274  0.1975853  0.8469650
+## 2 -0.9615407 -1.1066010 -0.9301069 -0.9667633
+## 3 -0.4469795 -0.3465138  0.4788049 -0.2571398
 ## 
 ## Clustering vector:
 ##        Alabama         Alaska        Arizona       Arkansas     California       Colorado 
-##              3              3              3              2              3              3 
+##              1              1              1              3              1              1 
 ##    Connecticut       Delaware        Florida        Georgia         Hawaii          Idaho 
-##              2              2              3              3              2              1 
+##              3              3              1              1              3              2 
 ##       Illinois        Indiana           Iowa         Kansas       Kentucky      Louisiana 
-##              3              2              1              2              1              3 
+##              1              3              2              3              2              1 
 ##          Maine       Maryland  Massachusetts       Michigan      Minnesota    Mississippi 
-##              1              3              2              3              1              3 
+##              2              1              3              1              2              1 
 ##       Missouri        Montana       Nebraska         Nevada  New Hampshire     New Jersey 
-##              3              1              1              3              1              2 
+##              1              2              2              1              2              3 
 ##     New Mexico       New York North Carolina   North Dakota           Ohio       Oklahoma 
-##              3              3              3              1              2              2 
+##              1              1              1              2              3              3 
 ##         Oregon   Pennsylvania   Rhode Island South Carolina   South Dakota      Tennessee 
-##              2              2              2              3              1              3 
+##              3              3              3              1              2              1 
 ##          Texas           Utah        Vermont       Virginia     Washington  West Virginia 
-##              3              2              1              2              2              1 
+##              1              3              2              3              3              2 
 ##      Wisconsin        Wyoming 
-##              1              2 
+##              2              3 
 ## 
 ## Within cluster sum of squares by cluster:
-## [1] 11.95246 19.62285 46.74796
+## [1] 46.74796 11.95246 19.62285
 ##  (between_SS / total_SS =  60.0 %)
 ## 
 ## Available components:
@@ -632,20 +631,18 @@ fviz_cluster(km.res, data = df_standardized, palette = &quot;jco&quot;,
 <li>Quedarnos, por ejemplo, con los datos del cluster 2:</li>
 </ol>
 <pre class="r"><code>km.res$cluster[km.res$cluster==2]</code></pre>
-<pre><code>##      Arkansas   Connecticut      Delaware        Hawaii       Indiana        Kansas Massachusetts 
+<pre><code>##         Idaho          Iowa      Kentucky         Maine     Minnesota       Montana      Nebraska 
 ##             2             2             2             2             2             2             2 
-##    New Jersey          Ohio      Oklahoma        Oregon  Pennsylvania  Rhode Island          Utah 
-##             2             2             2             2             2             2             2 
-##      Virginia    Washington       Wyoming 
-##             2             2             2</code></pre>
+## New Hampshire  North Dakota  South Dakota       Vermont West Virginia     Wisconsin 
+##             2             2             2             2             2             2</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>También podemos ver las medias de cada grupo:</li>
 </ol>
 <pre class="r"><code>aggregate(df, by=list(cluster=km.res$cluster), mean)</code></pre>
 <pre><code>##   cluster    Murder   Assault UrbanPop     Rape
-## 1       1  3.600000  78.53846 52.07692 12.17692
-## 2       2  5.841176 141.88235 72.47059 18.82353
-## 3       3 12.165000 255.25000 68.40000 29.16500</code></pre>
+## 1       1 12.165000 255.25000 68.40000 29.16500
+## 2       2  3.600000  78.53846 52.07692 12.17692
+## 3       3  5.841176 141.88235 72.47059 18.82353</code></pre>
 <p>Ejemplo de interprestación de la matriz anterior: <em>Los habitantes del grupo 1 tienen una media de asesinatos (</em>Murder<em>) de 3.6, mientras que los habitantes del grupo 2 tiene una media de 5.83 y los de grupos 3 una media de 12.16 asesinatos por 1000 habitantes.</em></p>
 <ol start="5" style="list-style-type: decimal">
 <li>Podemos probar con <code>cluster=4</code>:</li>
@@ -708,22 +705,9 @@ fviz_cluster(object = fuzzy_cluster, repel = TRUE, ellipse.type = &quot;norm&quo
 <h3><span class="header-section-number">2.4.1</span> Estudio de la tendencia de clustering</h3>
 <p>Antes de aplicar un método de clustering a los datos es conveniente evaluar si hay indicios de que realmente existe algún tipo de agrupación en ellos. A este proceso se le conoce como assessing cluster tendecy y puede llevarse a cabo mediante test estadísticos (<em>Estadístico de Hopkins</em>) o de forma visual (<em>Visual Assessment of cluster Tendency</em>).</p>
 <p>Para ilustrar la importancia de este pre-análisis inicial, se aplica clustering a dos sets de datos, uno que sí contiene grupos reales (<code>iris</code>) y otro aleatoriamente simulado que no.</p>
-<pre class="r"><code>library(purrr)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;purrr&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:plyr&#39;:
-## 
-##     compact</code></pre>
-<pre><code>## The following object is masked from &#39;package:magrittr&#39;:
-## 
-##     set_names</code></pre>
-<pre><code>## The following object is masked from &#39;package:data.table&#39;:
-## 
-##     transpose</code></pre>
-<pre><code>## The following object is masked from &#39;package:caret&#39;:
-## 
-##     lift</code></pre>
-<pre class="r"><code># Se elimina la columna que contiene la especie de planta
+<pre class="r"><code>library(purrr)
+
+# Se elimina la columna que contiene la especie de planta
 datos_iris &lt;- iris[, -5]
 
 # Se generan valores aleatorios dentro del rango de cada variable. Se utiliza la
@@ -741,14 +725,13 @@ datos_simulados &lt;- scale(datos_simulados)</code></pre>
 <p>Una representación gráfica permite comprobar que el set de datos <code>iris</code> sí contiene grupos reales, mientras que los datos simulados no. Al haber más de dos variables es necesario reducir la dimensionalidad mediante un <em>Principal Component Analysis</em> (método que explicaremos más adelante).</p>
 <pre class="r"><code>library(factoextra)
 library(ggpubr)</code></pre>
+<pre><code>## Warning: package &#39;ggpubr&#39; was built under R version 3.6.1</code></pre>
+<pre><code>## Loading required package: magrittr</code></pre>
 <pre><code>## 
-## Attaching package: &#39;ggpubr&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:ape&#39;:
+## Attaching package: &#39;magrittr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
 ## 
-##     rotate</code></pre>
-<pre><code>## The following object is masked from &#39;package:plyr&#39;:
-## 
-##     mutate</code></pre>
+##     set_names</code></pre>
 <pre class="r"><code>pca_datos_iris      &lt;- prcomp(datos_iris)
 pca_datos_simulados &lt;- prcomp(datos_simulados)
 p1 &lt;- fviz_pca_ind(X = pca_datos_iris, habillage = iris$Species,
@@ -791,11 +774,8 @@ ggarrange(p1, p2)</code></pre>
 # datos_simulados &lt;- map_df(datos_iris,
 #                           .f = function(x){runif(n = length(x), min = min(x), max = max(x))})
 if (!&quot;clustertend&quot; %in% rownames(installed.packages()))
-  install.packages(&quot;clustertend&quot;)</code></pre>
-<pre><code>## 
-## The downloaded binary packages are in
-##  /var/folders/2m/mp3kdlpx29q25xhnfjxcgtv00000gn/T//RtmpwiPWcF/downloaded_packages</code></pre>
-<pre class="r"><code>library(clustertend)
+  install.packages(&quot;clustertend&quot;)
+library(clustertend)
 set.seed(321)
 
 # Estadístico H para el set de datos iris
@@ -805,7 +785,7 @@ hopkins(data = datos_iris, n = nrow(datos_iris) - 1)</code></pre>
 <pre class="r"><code># Estadístico H para el set de datos simulado
 hopkins(data = datos_simulados, n = nrow(datos_simulados) - 1)</code></pre>
 <pre><code>## $H
-## [1] 0.5072578</code></pre>
+## [1] 0.5198121</code></pre>
 <p>El set de datos <code>iris</code> no sigue una distribución espacial uniforme, su estructura contiene algún tipo de agrupación. Por contra, el valor del estadístico H obtenido para el set de datos simulado es muy próximo a 0.5, lo que indica que los datos están uniformemente distribuidos y desaconseja la utilización de métodos de clustering.</p>
 </div>
 <div id="estudio-de-la-calidad" class="section level3">
@@ -829,22 +809,22 @@ fviz_silhouette(sil.obj = km_clusters, print.summary = TRUE, palette = &quot;jco
                 ggtheme = theme_classic())</code></pre>
 <pre><code>##   cluster size ave.sil.width
 ## 1       1   50          0.64
-## 2       2   47          0.35
-## 3       3   53          0.39</code></pre>
+## 2       2   53          0.39
+## 3       3   47          0.35</code></pre>
 <p><img src="Mod8_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <p>La función eclust() almacena, además de la información devuelta por la función de clustering empleada, en este caso kmeans, información sobre los coeficientes silhouette individuales y por cluster, el cluster al que se ha asignado cada observación y el cluster vecino más próximo (el segundo mejor candidato).</p>
 <pre class="r"><code># Media silhouette por cluster
 km_clusters$silinfo$clus.avg.widths</code></pre>
-<pre><code>## [1] 0.6363162 0.3473922 0.3933772</code></pre>
+<pre><code>## [1] 0.6363162 0.3933772 0.3473922</code></pre>
 <pre class="r"><code># Coeficiente silhouette para cada observación
 head(km_clusters$silinfo$widths)</code></pre>
 <pre><code>##    cluster neighbor sil_width
-## 1        1        3 0.7341949
-## 41       1        3 0.7333345
-## 8        1        3 0.7308169
-## 18       1        3 0.7287522
-## 5        1        3 0.7284741
-## 40       1        3 0.7247047</code></pre>
+## 1        1        2 0.7341949
+## 41       1        2 0.7333345
+## 8        1        2 0.7308169
+## 18       1        2 0.7287522
+## 5        1        2 0.7284741
+## 40       1        2 0.7247047</code></pre>
 <p>El cluster número 2 (amarillo) tiene observaciones con valores de silhouette próximos a 0 e incluso negativos, lo que indica que esas observaciones podrían estar mal clasificadas. Viendo la representación gráfica del clustering, cabe esperar que sean observaciones que están situadas en la frontera entre los clusters 2 y 3 ya que solapan.</p>
 <p>Véase cómo cambia el resultado si en lugar de 3 clusters (número correcto de especies), se crean 5.</p>
 <pre class="r"><code>library(ggpubr)
@@ -906,12 +886,11 @@ abline(h = 4, lty = 2) # dibujar la línea en la altura 4. </code></pre>
 <p>Los mapas de calor son otro modo muy completo de ver agrupamientos jerárquicos.</p>
 <p>En los mapas de calor, generalmente, las columnas son muestras y las filas son variables. Por lo tanto, comenzamos por transponer los datos antes de crear el mapa de calor.</p>
 <pre class="r"><code>if (!&quot;pheatmap&quot; %in% rownames(installed.packages()))
-  install.packages(&quot;pheatmap&quot;)</code></pre>
-<pre><code>## 
-## The downloaded binary packages are in
-##  /var/folders/2m/mp3kdlpx29q25xhnfjxcgtv00000gn/T//RtmpwiPWcF/downloaded_packages</code></pre>
-<pre class="r"><code>library(pheatmap)
-pheatmap(t(df_standardized), cutree_cols = 4)</code></pre>
+  install.packages(&quot;pheatmap&quot;)
+
+library(pheatmap)</code></pre>
+<pre><code>## Warning: package &#39;pheatmap&#39; was built under R version 3.6.1</code></pre>
+<pre class="r"><code>pheatmap(t(df_standardized), cutree_cols = 4)</code></pre>
 <p><img src="Mod8_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <p>Bibliografía recomendada:</p>
 <ul>

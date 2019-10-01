@@ -361,29 +361,26 @@ $(document).ready(function () {
 <ul>
 <li><p>Es una simple calculadora.</p></li>
 <li><p>Es un programa para el análisis de datos, que dispone de procedimientos específicos para:</p>
-<ul>
-<li>Estadística descriptiva.</li>
-<li>Inferencia estadística.</li>
-<li>Ajuste de Modelos.</li>
-<li>Estadística espacial.</li>
-<li>Epidemiología.</li>
-<li>Análisis de señales.</li>
-<li>Genética</li>
-<li>Econometría</li>
-<li>Series Temporales</li>
-<li>Ecuaciones estructurales</li>
-<li>Métodos bayesianos …</li>
-</ul></li>
+<pre><code>* Estadística descriptiva.
+* Inferencia estadística.
+* Ajuste de Modelos.
+* Estadística espacial.
+* Epidemiología.
+* Análisis de señales.
+* Genética
+* Econometría
+* Series Temporales
+* Ecuaciones estructurales
+* Métodos bayesianos
+…</code></pre></li>
 <li><p>Es una herramienta de cálculo numérico con procedimientos para el álgebra lineal, las ecuaciones diferenciales, la optimización, etc.</p></li>
 <li><p>Es un lenguaje de programación con las siguientes características:</p>
-<ul>
-<li>Actúa como interfaz para procedimientos computacionales muy diversos.</li>
-<li>Es interactivo.</li>
-<li>Su modelo de programación es funcional.</li>
-<li>Es orientado a objetos. Todo en R es un “objeto”.</li>
-<li>Es modular, construido a partir de mútiples “piezas” ajustadas a un formato estándar.</li>
-<li>Es colaborativo: es software libre, abierto a la participación de quien desee aportar su conocimiento y experiencia.</li>
-</ul></li>
+<pre><code>* Actúa como interfaz para procedimientos computacionales muy diversos.
+* Es interactivo.
+* Su modelo de programación es funcional.
+* Es orientado a objetos. Todo en R es un “objeto”.
+* Es modular, construido a partir de mútiples “piezas” ajustadas a un formato estándar.
+* Es colaborativo: es software libre, abierto a la participación de quien desee aportar su conocimiento y experiencia.</code></pre></li>
 </ul>
 <p>Es sobre todo un entorno de trabajo en el que se pueden manipular múltiples elementos: archivos de datos, gráficos, accesos a internet, etc. Este entorno de trabajo cuenta con la indiscutible ventaja de ser idéntico en los tres grandes sistemas operativos: Linux, Windows y Mac.</p>
 </div>
@@ -434,10 +431,7 @@ $(document).ready(function () {
 <div id="primer-ingreso-a-rstudio" class="section level2">
 <h2><span class="header-section-number">5.3</span> Primer ingreso a Rstudio</h2>
 <p>Abre Rstudio para empezar a trabajar. Luego <strong>File</strong> -&gt; <strong>New file</strong> -&gt; <strong>R Script</strong>. La pantalla debería ser similar a esto:</p>
-<div class="figure">
-<img src="https://github.com/icassol/platform-samples/blob/master/InicioRst.png?raw=true" />
-
-</div>
+<p><img src="https://github.com/icassol/platform-samples/blob/master/InicioRst.png?raw=true" /></p>
 <p>Esta pantalla contiene las cuatro áreas de trabajo de Rstudio:</p>
 <ul>
 <li><strong><em>Script:</em></strong> Aquí es donde se escriben los programas en r. Son scripts, o sea, archivos que contienen instrucciones en R. Aquí es donde vamos a escribir algoritmos o conjuntos de instrucciones para, luego, ejecutarlas. Para ejecutar un script, antes, hay que nombrarlo y grabarlo. En nuestro caso, el script figura como “Untitled1” porque está recién creado, vacío y todavía no le pusimos nombre.<br />
@@ -453,30 +447,15 @@ $(document).ready(function () {
 <pre class="r"><code>a&lt;-1</code></pre>
 <p>Con esta instrucción estamos creando una variable llamada “a”, y le estamos cargando el valor “1”. Esa variable se podrá ver en el área “Environment”.</p>
 <p>En la consola también puedes escribir, por ejemplo:</p>
-<div class="figure">
-<img src="http://www.dma.ulpgc.es/profesores/personal/stat/cursoR4ULPGC/imagenes/ejemplo2+2.png" />
-
-</div>
+<p><img src="resources/ejemplo2+2.png" /></p>
 <p>Puedes probar con múltiples funciones: raiz cuadrada (sqrt), cuadrado ( ^ 2), logaritmo, etc:</p>
-<div class="figure">
-<img src="http://www.dma.ulpgc.es/profesores/personal/stat/cursoR4ULPGC/imagenes/variasOperaciones.png" />
-
-</div>
+<p><img src="resources/variasOperaciones.png" /></p>
 <p>Puedes asignar valores a variables:</p>
-<div class="figure">
-<img src="http://www.dma.ulpgc.es/profesores/personal/stat/cursoR4ULPGC/imagenes/valVari.png" />
-
-</div>
+<p><img src="resources/valVari.png" /></p>
 <p>Una variable puede contener muchos valores; en tal caso la variable puede expresarse como un vector de dimensión n, que se construye mediante la función de concatenación, ´c()´:</p>
-<div class="figure">
-<img src="http://www.dma.ulpgc.es/profesores/personal/stat/cursoR4ULPGC/imagenes/vectores.png" />
-
-</div>
+<p><img src="resources/vectores.png" /></p>
 <p>Las operaciones con variables n-dimensionales se realizan término a término:</p>
-<div class="figure">
-<img src="http://www.dma.ulpgc.es/profesores/personal/stat/cursoR4ULPGC/imagenes/operaVectores.png" />
-
-</div>
+<p><img src="resources/operaVectores.png" /></p>
 <p>Hasta ahora hemos ejecutados instrucciones en R en la consola. Ahora bien, cuando cerremos Rstudio,no quedará rastro de lo que hemos estado haciendo. Para eso es que debemos trabajar con <strong><em>scripts</em></strong>.</p>
 <p>En muchas ocasiones nos interesará guardar los comandos que hemos empleado, por múltiples razones:</p>
 <ul>
@@ -494,7 +473,7 @@ fecha&lt;-date()
 repeticiones&lt;-5
 
 print(fecha)</code></pre>
-<pre><code>## [1] &quot;Wed May 29 18:19:10 2019&quot;</code></pre>
+<pre><code>## [1] &quot;Tue Oct 01 09:11:42 2019&quot;</code></pre>
 <pre class="r"><code>for (i in 1:repeticiones){
   print(mensaje)
 }</code></pre>
@@ -527,7 +506,7 @@ print(fecha)</code></pre>
 <p><a href="https://www.datacamp.com/">DataCamp</a></p>
 <p><a href="https://www.pluralsight.com/courses/r-programming-fundamentals">Code School</a></p>
 <p><a href="https://www.r-project.org/doc/bib/R-books.html">Leyendo libros y documentación en internet</a></p>
-<p><a href="http://www.dma.ulpgc.es/profesores/personal/stat/cursoR4ULPGC/index.html">Curso de introducción a R</a>. Recomendado. Varias clases y ejemplos de este curso, se tomaron de este sitio.</p>
+<p><a href="http://www.estadistica-dma.ulpgc.es/cursoR4ULPGC/index.html">Curso de introducción a R</a>. Recomendado. Varias clases y ejemplos de este curso, se tomaron de este sitio.</p>
 <p><a href="http://manuals.bioinformatics.ucr.edu/home/programming-in-r#TOC-Introduction">Programming in R</a></p>
 </div>
 
